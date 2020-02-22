@@ -1,0 +1,1018 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmarLamp.MainPage">
+
+    <StackLayout>
+
+        <Label/>
+
+        <Grid
+         x:Name="PatternGrid"    
+        >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame 
+                x:Name="b0_0"  
+                Grid.Row="0" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_0"  
+                Grid.Row="0" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_0"  
+                Grid.Row="0" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_0"  
+                Grid.Row="0" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_0"  
+                Grid.Row="0" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_0"  
+                Grid.Row="0" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_0"  
+                Grid.Row="0" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_0"  
+                Grid.Row="0" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- ################################ -->
+
+            <Frame 
+                x:Name="b0_1"  
+                Grid.Row="1" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_1"  
+                Grid.Row="1" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_1"  
+                Grid.Row="1" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_1"  
+                Grid.Row="1" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_1"  
+                Grid.Row="1" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_1"  
+                Grid.Row="1" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_1"  
+                Grid.Row="1" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_1"  
+                Grid.Row="1" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- ################################ -->
+
+            <Frame 
+                x:Name="b0_2"  
+                Grid.Row="2" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_2"  
+                Grid.Row="2" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_2"  
+                Grid.Row="2" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_2"  
+                Grid.Row="2" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_2"  
+                Grid.Row="2" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_2"  
+                Grid.Row="2" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_2"  
+                Grid.Row="2" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_2"  
+                Grid.Row="2" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- ################################ -->
+
+            <Frame 
+                x:Name="b0_3"  
+                Grid.Row="3" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_3"  
+                Grid.Row="3" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_3"  
+                Grid.Row="3" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_3"  
+                Grid.Row="3" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_3"  
+                Grid.Row="3" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_3"  
+                Grid.Row="3" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_3"  
+                Grid.Row="3" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_3"  
+                Grid.Row="3" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- ################################ -->
+
+            <Frame 
+                x:Name="b0_4"  
+                Grid.Row="4" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_4"  
+                Grid.Row="4" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_4"  
+                Grid.Row="4" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_4"  
+                Grid.Row="4" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_4"  
+                Grid.Row="4" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_4"  
+                Grid.Row="4" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_4"  
+                Grid.Row="4" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_4"  
+                Grid.Row="4" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- ################################ -->
+
+            <Frame 
+                x:Name="b0_5"  
+                Grid.Row="5" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_5"  
+                Grid.Row="5" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_5"  
+                Grid.Row="5" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_5"  
+                Grid.Row="5" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_5"  
+                Grid.Row="5" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_5"  
+                Grid.Row="5" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_5"  
+                Grid.Row="5" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_5"  
+                Grid.Row="5" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- ################################ -->
+
+            <Frame 
+                x:Name="b0_6"  
+                Grid.Row="6" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_6"  
+                Grid.Row="6" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_6"  
+                Grid.Row="6" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_6"  
+                Grid.Row="6" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_6"  
+                Grid.Row="6" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_6"  
+                Grid.Row="6" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_6"  
+                Grid.Row="6" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_6"  
+                Grid.Row="6" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <!-- ################################ -->
+
+            <Frame 
+                x:Name="b0_7"  
+                Grid.Row="7" 
+                Grid.Column="0" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black"
+                Margin="15,0,0,0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b1_7"  
+                Grid.Row="7" 
+                Grid.Column="1" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b2_7"  
+                Grid.Row="7" 
+                Grid.Column="2" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b3_7"  
+                Grid.Row="7" 
+                Grid.Column="3" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b4_7"  
+                Grid.Row="7" 
+                Grid.Column="4" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b5_7"  
+                Grid.Row="7" 
+                Grid.Column="5" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b6_7"  
+                Grid.Row="7" 
+                Grid.Column="6" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Frame 
+                x:Name="b7_7"  
+                Grid.Row="7" 
+                Grid.Column="7" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                BackgroundColor="Black">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Tapped"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+
+        </Grid>
+
+        <Frame x:Name="CurrentColor">
+        </Frame>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="59*"/>
+                <ColumnDefinition Width="14*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Text="Gamma:"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="15,0,0,0"
+                VerticalTextAlignment="Center"
+            />
+
+            <Slider
+                x:Name="Gamma"
+                Minimum="0"
+                Maximum="31"
+                ThumbColor="Black"
+                Grid.Row="0"
+                Grid.Column="1"
+                MinimumTrackColor="Black"
+                MaximumTrackColor="White"
+                ValueChanged="Gamma_ValueChanged"
+             />
+
+            <Label
+                x:Name="GammaLabel"
+                Text="000"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="0"
+                Grid.Column="2"              
+                VerticalTextAlignment="Center"
+            />
+
+            <Label
+                Text="Red:"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="15,0,0,0"
+                VerticalTextAlignment="Center"
+            />
+
+            <Slider
+                x:Name="Red"
+                Minimum="0"
+                Maximum="255"
+                ThumbColor="Red"
+                Grid.Row="1"
+                Grid.Column="1"
+                MinimumTrackColor="DarkRed"
+                MaximumTrackColor="White"
+                ValueChanged="Red_ValueChanged"
+             />
+
+            <Label
+                x:Name="RedLabel"
+                Text="000"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="1"
+                Grid.Column="2"
+                VerticalTextAlignment="Center"
+            />
+
+            <Label
+                Text="Green:"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="15,0,0,0"
+                VerticalTextAlignment="Center"
+            />
+
+            <Slider
+                x:Name="Green"
+                Minimum="0"
+                Maximum="255"
+                ThumbColor="Green"
+                Grid.Row="2"
+                Grid.Column="1"
+                MinimumTrackColor="DarkGreen"
+                MaximumTrackColor="White"
+                ValueChanged="Green_ValueChanged"
+             />
+
+            <Label
+                x:Name="GreenLabel"
+                Text="000"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="2"
+                Grid.Column="2"
+                VerticalTextAlignment="Center"
+            />
+
+            <Label
+                Text="Blue:"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="15,0,0,0"
+                VerticalTextAlignment="Center"
+            />
+
+            <Slider
+                x:Name="Blue"
+                Minimum="0"
+                Maximum="255"
+                ThumbColor="Blue"
+                Grid.Row="3"
+                Grid.Column="1"
+                MinimumTrackColor="DarkBlue"
+                MaximumTrackColor="White"
+                ValueChanged="Blue_ValueChanged"
+             />
+
+            <Label
+                x:Name="BlueLabel"
+                Text="000"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="3"
+                Grid.Column="2"
+                VerticalTextAlignment="Center"
+            />
+
+            <Label
+                Text="Use Pattern:"
+                FontSize="Large"
+                TextColor="Black"
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="15,0,0,0"
+                Grid.ColumnSpan="2"
+                VerticalTextAlignment="Center"
+            />
+
+            <Switch 
+                x:Name="UsePatternSwitch"
+                Grid.Row="4"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Margin="0,0,15,0"
+                Toggled="UsePatternSwitch_Toggled"
+             />
+
+        </Grid>
+
+        <Picker 
+            x:Name="DevicePicker"
+            Title="Pick a device"
+            FontSize="Large"
+            TextColor="Black"
+            Margin="15,0,15,0"
+            TitleColor="Black"
+            SelectedIndexChanged="DevicePicker_SelectedIndexChanged"
+        />
+
+        <Button
+            Text="TURN ON"
+            TextColor="Black"
+            FontSize="Large"
+            Clicked="LampOnOff"
+            Margin="15,0,15,0"
+        />
+
+    </StackLayout>
+
+</ContentPage>
