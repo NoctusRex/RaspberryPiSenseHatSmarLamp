@@ -846,42 +846,10 @@
             </Grid.ColumnDefinitions>
 
             <Label
-                Text="Gamma:"
-                FontSize="Large"
-                TextColor="Black"
-                Grid.Row="0"
-                Grid.Column="0"
-                Margin="15,0,0,0"
-                VerticalTextAlignment="Center"
-            />
-
-            <Slider
-                x:Name="Gamma"
-                Minimum="0"
-                Maximum="31"
-                ThumbColor="Black"
-                Grid.Row="0"
-                Grid.Column="1"
-                MinimumTrackColor="Black"
-                MaximumTrackColor="White"
-                ValueChanged="Gamma_ValueChanged"
-             />
-
-            <Label
-                x:Name="GammaLabel"
-                Text="000"
-                FontSize="Large"
-                TextColor="Black"
-                Grid.Row="0"
-                Grid.Column="2"              
-                VerticalTextAlignment="Center"
-            />
-
-            <Label
                 Text="Red:"
                 FontSize="Large"
                 TextColor="Black"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="0"
                 Margin="15,0,0,0"
                 VerticalTextAlignment="Center"
@@ -892,7 +860,7 @@
                 Minimum="0"
                 Maximum="255"
                 ThumbColor="Red"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="1"
                 MinimumTrackColor="DarkRed"
                 MaximumTrackColor="White"
@@ -904,7 +872,7 @@
                 Text="000"
                 FontSize="Large"
                 TextColor="Black"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="2"
                 VerticalTextAlignment="Center"
             />
@@ -913,7 +881,7 @@
                 Text="Green:"
                 FontSize="Large"
                 TextColor="Black"
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="0"
                 Margin="15,0,0,0"
                 VerticalTextAlignment="Center"
@@ -924,7 +892,7 @@
                 Minimum="0"
                 Maximum="255"
                 ThumbColor="Green"
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="1"
                 MinimumTrackColor="DarkGreen"
                 MaximumTrackColor="White"
@@ -936,7 +904,7 @@
                 Text="000"
                 FontSize="Large"
                 TextColor="Black"
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="2"
                 VerticalTextAlignment="Center"
             />
@@ -945,7 +913,7 @@
                 Text="Blue:"
                 FontSize="Large"
                 TextColor="Black"
-                Grid.Row="3"
+                Grid.Row="2"
                 Grid.Column="0"
                 Margin="15,0,0,0"
                 VerticalTextAlignment="Center"
@@ -956,7 +924,7 @@
                 Minimum="0"
                 Maximum="255"
                 ThumbColor="Blue"
-                Grid.Row="3"
+                Grid.Row="2"
                 Grid.Column="1"
                 MinimumTrackColor="DarkBlue"
                 MaximumTrackColor="White"
@@ -968,7 +936,7 @@
                 Text="000"
                 FontSize="Large"
                 TextColor="Black"
-                Grid.Row="3"
+                Grid.Row="2"
                 Grid.Column="2"
                 VerticalTextAlignment="Center"
             />
@@ -977,7 +945,7 @@
                 Text="Use Pattern:"
                 FontSize="Large"
                 TextColor="Black"
-                Grid.Row="4"
+                Grid.Row="3"
                 Grid.Column="0"
                 Margin="15,0,0,0"
                 Grid.ColumnSpan="2"
@@ -986,7 +954,7 @@
 
             <Switch 
                 x:Name="UsePatternSwitch"
-                Grid.Row="4"
+                Grid.Row="3"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Margin="0,0,15,0"

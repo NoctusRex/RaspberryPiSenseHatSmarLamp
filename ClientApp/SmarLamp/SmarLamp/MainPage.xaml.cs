@@ -1,15 +1,23 @@
-﻿using Android.Bluetooth;
-using Plugin.BLE.Abstractions.Contracts;
-using SmarLamp.Bluetooth;
+﻿using Android.Content;
+using Android.Net;
+using Android.Net.Wifi;
+using Plugin.Connectivity;
 using SmarLamp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Net.WebSockets;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Button = Xamarin.Forms.Button;
 using Color = System.Drawing.Color;
+using Uri = System.Uri;
 
 namespace SmarLamp
 {
@@ -19,21 +27,33 @@ namespace SmarLamp
     public partial class MainPage : ContentPage
     {
         private Dictionary<Frame, string> PatternFrames { get; set; }
-        private BluetoothClient BluetoothClient { get; set; }
+        private LampData Data { get; set; } = new LampData();
 
-        private Java.Util.UUID Service { get; } = Java.Util.UUID.FromString("795090c7-420d-4048-a24e-18e60180e23c");
-        private Java.Util.UUID GetSettingsCharacteristic { get; } = Java.Util.UUID.FromString("31517c58-66bf-470c-b662-e352a6c80cba");
-        private Java.Util.UUID GetSettingsConfigDescriptor { get; } = Java.Util.UUID.FromString("0b89d2d4-0ea6-4141-86bb-0c5fb91ab14a");
-        private Java.Util.UUID SetSettingsCharacteristic { get; } = Java.Util.UUID.FromString("00002902-0000-1000-8000-00805f9b34fb");
-        private LampData Data { get; set; }
+        private string LastIp
+        {
+            get
+            {
+                if (Application.Current.Properties.ContainsKey("LastIp"))
+                {
+                    return Application.Current.Properties["LastIp"].ToString();
+                }
+
+                return "";
+            }
+            set
+            {
+                Application.Current.Properties["LastIp"] = value;
+            }
+        }
 
         public MainPage()
         {
             InitializeComponent();
-
             LoadPatternFrames();
-            InitBluetooth();
-            Data = new LampData();
+
+            Red.Value = 0;
+            Green.Value = 0;
+            Blue.Value = 0;
         }
 
         protected override async void OnAppearing()
@@ -42,102 +62,63 @@ namespace SmarLamp
 
             await Task.Yield();
 
-            ShowBluetoothQuery();
+            ShowWlanQuery();
+
             LoadDevices();
         }
 
-        #region "Bluetooth"
+        #region "Wlan"
 
         private void LoadDevices()
         {
-            DevicePicker.ItemsSource = BluetoothClient.LoadConnectedOrPairedDevices();
+            List<string> ips = new List<string>();
+
+            ips.Add("192.168.178.41");
+
+            DevicePicker.ItemsSource = ips;
+
+            if (DevicePicker.Items.Contains(LastIp)) DevicePicker.SelectedItem = LastIp;
         }
 
-        private async void ShowBluetoothQuery()
+        private async void ShowWlanQuery()
         {
             // ask to activate bluetooth
-            while (!BluetoothClient.Bluetooth.IsOn)
+            while (!CrossConnectivity.Current.IsConnected)
             {
-                if (await DisplayAlert("Bluetooth is off", "Start bluetooth?", "Yes", "No"))
+                if (await DisplayAlert("Wlan is off", "Start Wlan?", "Yes", "No"))
                 {
-                    if (BluetoothClient.Bluetooth.IsOn) return;
-
-                    try
-                    {
-                        BluetoothClient.Manager.Adapter.Enable();
-                    }
-                    catch (Exception ex)
-                    {
-                        await DisplayAlert("Error", ex.ToString(), "Ok");
-                    }
-
                 }
                 else
                 {
-                    if (BluetoothClient.Bluetooth.IsOn) return;
                     System.Diagnostics.Process.GetCurrentProcess().Kill();
                 }
             }
         }
-
-        private void InitBluetooth()
+     
+        private async void SendDataToServer()
         {
-            BluetoothClient = new BluetoothClient();
+            if (DevicePicker.SelectedItem is null) return;
 
-            BluetoothClient.CharacteristicChanged += (s, ceo) =>
-            {
-
-            };
-
-            BluetoothClient.CharacteristicRead += (s, ceo) =>
-            {
-
-            };
-
-            BluetoothClient.ConnectStateChanged += (s, newStatus) =>
-            {
-                Device.BeginInvokeOnMainThread(() => 
-                {
-                 DisplayAlert("test",newStatus.NewState.ToString(), "Ok");
-                });
-            };
-
-            BluetoothClient.Bluetooth.StateChanged += (s, e) => ShowBluetoothQuery();
-        }
-
-        private void DevicePicker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!BluetoothClient.ConnectToDevice((IDevice)DevicePicker.SelectedItem))
-            {
-                DisplayAlert("Error", "Could not connect to device.", "Ok");
-                DevicePicker.SelectedItem = null;
-
-                return;
-            }
+            ClientWebSocket client = new ClientWebSocket();
 
             try
             {
-                BluetoothGattService service = BluetoothClient.GetService(Service);
-                if (service is null) throw new Exception("Service not found");
+                CancellationTokenSource cts = new CancellationTokenSource();
+                cts.CancelAfter(10000);
 
-                BluetoothClient.SetupCharacteristic(service, GetSettingsCharacteristic, true);
-                BluetoothClient.WriteDescriptor(BluetoothClient.Characteristics.First(x => x.Uuid.Equals(GetSettingsCharacteristic)), GetSettingsConfigDescriptor, BluetoothGattDescriptor.EnableNotificationValue);
+                await client.ConnectAsync(new Uri($"ws://{DevicePicker.SelectedItem.ToString()}:12345"), cts.Token);
 
-                BluetoothClient.SetupCharacteristic(service, SetSettingsCharacteristic);
+                await client.SendAsync(new ArraySegment<byte>(Data.ToByteArray()), WebSocketMessageType.Text, true, cts.Token);
+
+                await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Bye", cts.Token);
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", "Could not connect service or characteristic: " + ex.Message, "Ok");
-                BluetoothClient.Disconnect();
-                DevicePicker.SelectedItem = null;
+                client.Abort();
+                await DisplayAlert("Error", "Could not connect: " + ex.Message, "Ok");
             }
 
-        }
 
-        private void SendDataToServer()
-        {
-            if (BluetoothClient.IsConnected)
-                BluetoothClient.WriteCharacteristic(BluetoothClient.Characteristics.First(x => x.Uuid.Equals(SetSettingsCharacteristic)), Data.ToByteArray());
         }
 
         #endregion
@@ -223,6 +204,21 @@ namespace SmarLamp
 
             foreach (KeyValuePair<Frame, string> frame in PatternFrames)
             {
+                int x = int.Parse(PatternFrames[frame.Key].Split('-')[0]);
+                int y = int.Parse(PatternFrames[frame.Key].Split('-')[1]);
+
+                Data.Pattern.Add(new Pixel()
+                {
+                    X = x,
+                    Y = y,
+                    Color = new Models.Color()
+                    {
+                        R = 0,
+                        G = 0,
+                        B = 0
+                    }
+                });
+
                 frame.Key.IsEnabled = false;
             }
         }
@@ -236,19 +232,12 @@ namespace SmarLamp
             if (frame.BackgroundColor != Xamarin.Forms.Color.Black)
             {
                 frame.BackgroundColor = Xamarin.Forms.Color.Black;
+                Data.Pattern.First(p => p.X == x && p.Y == y).Color = new Models.Color() { R = 0, G = 0, B = 0 };
             }
             else
             {
                 frame.BackgroundColor = CurrentColor.BackgroundColor;
-            }
-
-            if (!Data.Pattern.Any(p => p.X == x && p.Y == y))
-            {
-                Data.Pattern.Add(new Pixel() { X = x, Y = y, Color = new Models.Color() { R = (int)CurrentColor.BackgroundColor.R, G = (int)CurrentColor.BackgroundColor.G, B = (int)CurrentColor.BackgroundColor.B } });
-            }
-            else
-            {
-                Data.Pattern.First(p => p.X == x && p.Y == y).Color = new Models.Color() { R = (int)CurrentColor.BackgroundColor.R, G = (int)CurrentColor.BackgroundColor.G, B = (int)CurrentColor.BackgroundColor.B };
+                Data.Pattern.First(p => p.X == x && p.Y == y).Color = new Models.Color() { R = (int)Red.Value, G = (int)Green.Value, B = (int)Blue.Value };
             }
 
             SendDataToServer();
@@ -276,12 +265,6 @@ namespace SmarLamp
 
         #region "Slider"
 
-        private void Gamma_ValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            GammaLabel.Text = ((int)Gamma.Value).ToString();
-            SetColorImage();
-        }
-
         private void Red_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             RedLabel.Text = ((int)Red.Value).ToString();
@@ -303,10 +286,9 @@ namespace SmarLamp
         private void SetColorImage()
         {
             Data.Color = new Models.Color() { R = (int)Red.Value, G = (int)Green.Value, B = (int)Blue.Value };
-            Data.Gamma = (int)Gamma.Value;
 
             CurrentColor.BackgroundColor = Color.FromArgb((int)Red.Value, (int)Green.Value, (int)Blue.Value);
-            SendDataToServer();
+            if (!Data.UsePattern) SendDataToServer();
         }
 
         #endregion
@@ -323,6 +305,9 @@ namespace SmarLamp
             SendDataToServer();
         }
 
+        private void DevicePicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LastIp = DevicePicker.SelectedItem.ToString();
+        }
     }
-
 }

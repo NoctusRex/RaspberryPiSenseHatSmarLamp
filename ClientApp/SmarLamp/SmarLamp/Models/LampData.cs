@@ -8,7 +8,6 @@ namespace SmarLamp.Models
     {
         public bool UsePattern { get; set; }
         public Color Color { get; set; } = new Color();
-        public int Gamma { get; set; }
         public List<Pixel> Pattern { get; set; } = new List<Pixel>();
         public bool On { get; set; }
 
